@@ -1,0 +1,95 @@
+@use '../../styles/variables' as v;
+
+.Footer {
+  background-color: v.$primaryColor;
+  padding: 2rem;
+
+  &-main {
+    border-bottom: 1px solid v.$primaryColorLight;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto 2rem auto;
+    max-width: 1350px;
+
+    @media (max-width: 700px) {
+      align-items: center;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &-title {
+      @media (max-width: 700px) {
+        border-bottom: 1px solid v.$primaryColorLight;
+        padding-bottom: 1rem;
+        width: 95%;
+        text-align: center;
+      }
+
+      &-logoContainer-logo {
+        height: 3rem;
+      }
+      &-description {
+        line-height: 2.5ch;
+        margin-top: 2rem;
+      }
+    }
+
+    &-navs {
+      display: flex;
+      gap: 12rem;
+      margin-top: 0.5rem;
+
+      @media (max-width: 850px) {
+        gap: 3rem;
+      }
+      @media (max-width: 700px) {
+        margin-top: 0;
+      }
+
+      &-account-title,
+      &-mountify-title {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      &-account-links-link,
+      &-mountify-links-link {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  &-bottom {
+    text-align: center;
+
+    @media (max-width: 550px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &-bar {
+        display: none;
+      }
+    }
+
+    &-credits a {
+      font-weight: 600;
+
+      // when hover a underline start to be drawn with animation from de bottom left to the bottom right of the link
+      position: relative;
+      &::before {
+        background-color: v.$textColor;
+        bottom: -0.15rem;
+        content: '';
+        height: 0.1rem;
+        left: 0;
+        position: absolute;
+        transition: width 0.2s;
+        width: 0;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}

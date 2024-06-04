@@ -1,0 +1,70 @@
+@use '../../../styles/variables' as v;
+
+.HomeMap {
+  background-color: v.$accentColor;
+  border-radius: v.$radius;
+  overflow: hidden;
+  width: 48%;
+
+  @media (max-width: 1080px) {
+    border-radius: v.$radius 0 0 v.$radius;
+  }
+  @media (max-width: 700px) {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  &-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 2rem 1rem 2rem;
+
+    &-title {
+      font-family: v.$titleFont;
+      font-size: 1.7rem;
+      font-weight: 700;
+
+      @media (max-width: 1225px) {
+        font-size: 1.4rem;
+      }
+    }
+
+    &-icon {
+      background-color: v.$accentColorLight;
+      border: 1px solid v.$accentColorLight;
+      border-radius: v.$radius;
+      font-size: 2rem;
+      margin-left: 1rem;
+      padding: 0.25rem 0.25rem 0 0.2rem;
+
+      &:hover {
+        background-color: v.$accentColorDark;
+      }
+      transition: background-color 0.1s;
+    }
+  }
+
+  &-map {
+    height: calc(100% - 5.1rem);
+    width: 100%;
+
+    @media (max-width: 700px) {
+      height: 20rem;
+    }
+
+    & .leaflet-bottom.leaflet-right {
+      display: none;
+    }
+
+    &-marker-popup {
+      color: v.$textColor;
+      font-family: v.$mainFont;
+      margin-bottom: 3rem;
+
+      & .leaflet-popup-content-wrapper {
+        border-radius: v.$radius;
+      }
+    }
+  }
+}

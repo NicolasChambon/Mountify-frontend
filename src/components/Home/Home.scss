@@ -1,0 +1,21 @@
+@use '../../styles/variables' as v;
+
+.Home {
+  margin-bottom: 3rem;
+  &-aboutAndMap {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1350px;
+    padding: 0 3rem;
+
+    @media (max-width: 1080px) {
+      padding: 0;
+    }
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}

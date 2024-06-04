@@ -1,0 +1,286 @@
+@use '../../styles/variables' as v;
+
+.Header {
+  background-color: v.$backgroundColor;
+  border-bottom: 1px solid v.$backgroundColorDark;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+
+  &-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    height: 4rem;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1350px;
+    padding: 0.5rem 2rem;
+    position: relative;
+
+    @media (max-width: 940px) {
+      padding: 0.5rem 0.5rem;
+    }
+
+    &-logoContainer {
+      height: 100%;
+
+      @media (max-width: 1070px) {
+        max-width: 3.7rem;
+        overflow: hidden;
+      }
+
+      &-logo {
+        height: 100%;
+      }
+    }
+
+    &-search {
+      align-items: center;
+      display: flex;
+
+      &-button {
+        background-color: v.$primaryColor;
+        border: 1px solid v.$primaryColorDark;
+        border-right: none;
+        border-radius: v.$radius 0 0 v.$radius;
+        font-size: 1.5rem;
+        height: 2.5rem;
+        width: 2.5rem;
+
+        &:hover {
+          background-color: v.$primaryColorDark;
+        }
+        transition: background-color 0.1s;
+
+        &-icon {
+          vertical-align: text-top;
+        }
+      }
+
+      &-input {
+        border: 1px solid v.$accentColor;
+        border-left: none;
+        border-radius: 0 v.$radius v.$radius 0;
+        font-family: v.$mainFont;
+        font-size: v.$textSize;
+        height: 2.5rem;
+        margin-right: 1.5rem;
+        padding: 0 0.5rem;
+        width: 20rem;
+
+        @media (max-width: 890px) {
+          width: 13rem;
+          margin-right: 0.5rem;
+        }
+        @media (max-width: 420px) {
+          width: 8rem;
+          margin-right: 0.5rem;
+        }
+
+        &:focus {
+          border-color: v.$accentColorDark;
+        }
+      }
+
+      &-mapLink {
+        color: v.$textColorLight;
+        font-size: 2rem;
+
+        @media (max-width: 760px) {
+          display: none;
+        }
+
+        &:hover {
+          color: v.$textColor;
+        }
+        transition: color 0.1s;
+      }
+    }
+
+    &-discover {
+      background-color: v.$primaryColor;
+      border: 1px solid v.$primaryColorDark;
+      border-radius: v.$radius;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+
+      @media (max-width: 760px) {
+        display: none;
+      }
+
+      &:hover {
+        background-color: v.$primaryColorDark;
+      }
+      transition: background-color 0.1s;
+
+      &-icon {
+        vertical-align: top;
+      }
+    }
+
+    &-buttons {
+      font-weight: 500;
+
+      @media (max-width: 760px) {
+        display: none;
+      }
+
+      &-login {
+        background-color: v.$accentColor;
+        border: 1px solid v.$accentColorDark;
+        border-radius: v.$radius 0 0 v.$radius;
+        border-right: none;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          background-color: v.$accentColorDark;
+        }
+        transition: background-color 0.1s;
+      }
+
+      &-signup {
+        background-color: v.$secondaryColor;
+        border: 1px solid v.$secondaryColorDark;
+        border-left: none;
+        border-radius: 0 v.$radius v.$radius 0;
+        padding: 0.5rem 1.5rem;
+
+        &:hover {
+          background-color: v.$secondaryColorDark;
+        }
+        transition: background-color 0.1s;
+      }
+    }
+
+    &-buttonsLogged {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+
+      @media (max-width: 760px) {
+        display: none;
+      }
+
+      &-addMoutain {
+        align-items: center;
+        color: v.$textColorLight;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        gap: 0.5rem;
+
+        &:hover {
+          color: v.$textColor;
+        }
+        transition: color 0.1s;
+      }
+
+      &-user {
+        align-items: center;
+        background-color: v.$backgroundColor;
+        border: none;
+        color: v.$textColorLight;
+        display: flex;
+        gap: 0.25rem;
+
+        &:hover {
+          color: v.$textColor;
+        }
+        transition: color 0.1s;
+
+        &-avatarContainer {
+          border-radius: 50%;
+          height: 3.25rem;
+          overflow: hidden;
+          width: 3.25rem;
+
+          &-avatar {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &-icon {
+          font-size: 1.15rem;
+        }
+      }
+    }
+
+    &-menuBtn {
+      background-color: v.$backgroundColor;
+      border: none;
+      color: v.$textColorLight;
+      font-size: 2rem;
+      padding-top: 0.5rem;
+
+      &:hover {
+        color: v.$textColor;
+      }
+      transition: color 0, 1s;
+
+      @media (min-width: 761px) {
+        display: none;
+      }
+    }
+
+    &-userMenu {
+      background-color: v.$backgroundColor;
+      border-radius: v.$radius;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+      flex-direction: column;
+      overflow: hidden;
+      position: absolute;
+      right: 0.25rem;
+      top: 4.25rem;
+      width: 30%;
+
+      &-link {
+        align-items: center;
+        border-bottom: 1px solid v.$backgroundColorDark;
+        display: flex;
+        font-size: 1rem;
+        justify-content: space-between;
+        padding: 1rem;
+        vertical-align: auto;
+
+        &:hover {
+          background-color: v.$backgroundColorDark;
+        }
+        transition: background-color 0.3s;
+      }
+    }
+
+    &-menu {
+      background-color: v.$backgroundColor;
+      border-radius: v.$radius;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      position: absolute;
+      right: 0.25rem;
+      top: 4.25rem;
+      width: 70%;
+
+      @media (max-width: 760px) {
+        display: flex;
+      }
+
+      &-link {
+        align-items: center;
+        border-bottom: 1px solid v.$backgroundColorDark;
+        display: flex;
+        font-size: 1rem;
+        justify-content: space-between;
+        padding: 1rem;
+        vertical-align: auto;
+
+        &:hover {
+          background-color: v.$backgroundColorDark;
+        }
+        transition: background-color 0.3s;
+      }
+    }
+  }
+}
