@@ -6,7 +6,7 @@ import {
 const mountainMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_MOUNTAINS: {
-      fetch('http://localhost:3000/api/mountains/list')
+      fetch(`${import.meta.env.VITE_MOUNTIFY_API_URL}/mountains/list`)
         // we get the response which is a Promise then we parse it to JSON
         .then((response) => {
           if (!response.ok) {

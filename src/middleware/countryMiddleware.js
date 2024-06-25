@@ -6,7 +6,7 @@ import {
 const countryMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_COUNTRIES: {
-      fetch('http://localhost:3000/api/countries')
+      fetch(`${import.meta.env.VITE_MOUNTIFY_API_URL}/countries`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

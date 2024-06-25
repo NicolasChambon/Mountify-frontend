@@ -3,7 +3,7 @@ import { FETCH_REGIONS, fetchRegionsSuccess } from '../actions/regionActions';
 const regionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_REGIONS: {
-      fetch('http://localhost:3000/api/regions')
+      fetch(`${import.meta.env.VITE_MOUNTIFY_API_URL}/regions`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
