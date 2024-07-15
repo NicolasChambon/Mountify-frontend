@@ -1,8 +1,8 @@
-import Header from '../Header/Header';
+import Header from '../../organisms/Header/Header';
 import Hero from './Hero/Hero';
 import HomeAbout from './HomeAbout/HomeAbout';
 import HomeMap from './HomeMap/HomeMap';
-import Footer from '../Footer/Footer';
+import Footer from '../../organisms/Footer/Footer';
 
 import './Home.scss';
 

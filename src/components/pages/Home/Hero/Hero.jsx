@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import { FaArrowRight } from 'react-icons/fa';
 
-import Mountify_logo from '../../../assets/Mountify_logo_3colors_title.svg';
-import Landscape from '../../../assets/Mountify_landscape_black.svg';
+import Mountify_logo from '../../../../assets/Mountify_logo_3colors_title.svg';
+import Landscape from '../../../../assets/Mountify_landscape_black.svg';
 
 import './Hero.scss';
 

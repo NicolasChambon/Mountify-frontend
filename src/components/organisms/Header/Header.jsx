@@ -10,7 +10,7 @@ import { LuMountainSnow } from 'react-icons/lu';
 import { FiUser, FiLogOut, FiLogIn, FiUserPlus } from 'react-icons/fi';
 import { RxCross2 } from 'react-icons/rx';
 
-import Mountify_logo from '../../assets/Mountify_logo_dark_title.svg';
+import Mountify_logo from '../../../assets/Mountify_logo_dark_title.svg';
 
 import './Header.scss';
 

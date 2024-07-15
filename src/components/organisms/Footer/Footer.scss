@@ -1,4 +1,4 @@
-@use '../../styles/variables' as v;
+@use '../../../styles/variables.scss' as v;
 
 .Footer {
   background-color: v.$primaryColor;

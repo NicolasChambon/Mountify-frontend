@@ -7,9 +7,9 @@ import L from 'leaflet';
 
 import { RxEnterFullScreen } from 'react-icons/rx';
 
-import { fetchMountains } from '../../../actions/mountainActions';
+import { fetchMountains } from '../../../../actions/mountainActions';
 
-import Mountify_Marker from '../../../assets/Mountify_marker.svg';
+import Mountify_Marker from '../../../../assets/Mountify_marker.svg';
 
 import 'leaflet/dist/leaflet.css';
 import './HomeMap.scss';

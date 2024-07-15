@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Mountify_logo from '../../assets/Mountify_logo_dark_title.svg';
+import Mountify_logo from '../../../assets/Mountify_logo_dark_title.svg';
 
 import './Footer.scss';
 
