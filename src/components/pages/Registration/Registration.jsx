@@ -1,12 +1,15 @@
-// import SubRegistration from '../../folder/SubRegistration/SubRegistration';
+import RegistrationHeader from './RegistrationHeader/RegistrationHeader';
 
 import './Registration.scss';
 
 const Registration = () => {
   return (
-    <main className="Registration">
-      <form action="">form</form>
-    </main>
+    <>
+      <RegistrationHeader />
+      <main className="Registration">
+        <form action="">form</form>
+      </main>
+    </>
   );
 };
 
