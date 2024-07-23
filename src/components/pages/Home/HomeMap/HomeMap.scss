@@ -22,8 +22,8 @@
 
     &-title {
       font-family: v.$titleFont;
-      font-size: 1.7rem;
-      font-weight: 700;
+      font-size: v.$h2Size;
+      font-weight: v.$h2Weight;
 
       @media (max-width: 1225px) {
         font-size: 1.4rem;

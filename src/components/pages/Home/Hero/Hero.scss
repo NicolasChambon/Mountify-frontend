@@ -62,8 +62,8 @@
 
     &-description {
       line-height: 2ch;
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: v.$subtitlesSize;
+      font-weight: v.$subtitlesWeight;
       margin: 0 auto 3rem auto;
       width: 65%;
       max-width: 700px;

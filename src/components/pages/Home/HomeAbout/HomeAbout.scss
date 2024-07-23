@@ -19,8 +19,8 @@
 
   &-title {
     font-family: v.$titleFont;
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-size: v.$h2Size;
+    font-weight: v.$h2Weight;
     margin-bottom: 1.5rem;
     width: 100%;
 

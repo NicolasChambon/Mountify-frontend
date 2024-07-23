@@ -1,0 +1,34 @@
+@use '../../../../styles/variables.scss' as v;
+
+.RegistrationMain {
+  background-image: url(../../../../assets/Registration_background.jpg);
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 4rem - 1px);
+  padding-top: 10rem;
+
+  &-content {
+    background-color: v.$backgroundColorTransparent;
+    border-radius: v.$radius;
+    margin: auto;
+    padding: 2rem 3rem;
+    width: 30rem;
+
+    &-title {
+      color: v.$textColor;
+      font-family: v.$titleFont;
+      font-size: v.$h2Size;
+      font-weight: v.$h2Weight;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &-subtitle {
+      color: v.$textColor;
+      font-size: v.$subtitlesSize;
+      font-weight: v.$subtitlesWeight;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+}
