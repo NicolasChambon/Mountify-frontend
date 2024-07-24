@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { RxCross2 } from 'react-icons/rx';
+import { FiCheck } from 'react-icons/fi';
 
 import { changeRegistrationInput } from '../../../../actions/registrationActions';
 
@@ -10,6 +11,28 @@ import './RegistrationMain.scss';
 
 const RegistrationMain = () => {
   const dispatch = useDispatch();
+  const usernameInput = useSelector(
+    (state) => state.registration.usernameInput
+  );
+  const passwordInput = useSelector(
+    (state) => state.registration.passwordInput
+  );
+
+  // Username rules
+  // .test(string) method is used to test if a string matches a regular expression
+  const isUsernameLongEnough = usernameInput.length >= 3;
+  const isUsernameStartingWithLetter = /^[a-zA-Z]/.test(usernameInput);
+
+  // Password rules
+  const isPasswordLongEnough = passwordInput.length >= 8;
+  const isPasswordContainingUppercase = /[A-Z]/.test(passwordInput);
+  const isPasswordContainingLowercase = /[a-z]/.test(passwordInput);
+  const isPasswordContainingNumber = /\d/.test(passwordInput);
+  const isPasswordContainingSpecialCharacter = /[^A-Za-z0-9]/.test(
+    passwordInput
+  );
+  const isPasswordNotContainingSpace = !/\s/.test(passwordInput);
+
   return (
     <main className="RegistrationMain">
       <div className="RegistrationMain-content">
@@ -50,12 +73,20 @@ const RegistrationMain = () => {
           </div>
           <div className="RegistrationMain-content-form-usernameRules">
             <div className="RegistrationMain-content-form-usernameRules-item">
-              <RxCross2 className="cross" />
+              {isUsernameLongEnough ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>3 caractères minimum</p>
             </div>
             <div className="RegistrationMain-content-form-usernameRules-item">
-              <RxCross2 className="cross" />
-              <p>Commence par une lettre</p>
+              {isUsernameStartingWithLetter ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
+              <p>Commence par une lettre</p> */}
             </div>
           </div>
           <div className="RegistrationMain-content-form-item password">
@@ -95,23 +126,43 @@ const RegistrationMain = () => {
           </div>
           <div className="RegistrationMain-content-form-passwordRules">
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordLongEnough ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>8 caractères minimum</p>
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordContainingUppercase ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>Au moins une lettre majuscule</p>
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordContainingLowercase ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>Au moins une lettre minuscule</p>
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordContainingNumber ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>Au moins un chiffre</p>
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordContainingSpecialCharacter ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>
                 {
                   'Au moins un caractère spécial (parmi !@#$%^&*()_-+={}[]:;"\'|\\,.<>?/`)'
@@ -119,7 +170,11 @@ const RegistrationMain = () => {
               </p>
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
-              <RxCross2 className="cross" />
+              {isPasswordNotContainingSpace ? (
+                <FiCheck className="check" />
+              ) : (
+                <RxCross2 className="cross" />
+              )}
               <p>Ne contient pas d&apos;espace</p>
             </div>
           </div>
