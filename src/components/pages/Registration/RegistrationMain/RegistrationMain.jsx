@@ -1,10 +1,15 @@
+import { useSelector, useDispatch } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
 import { RxCross2 } from 'react-icons/rx';
 
+import { changeRegistrationInput } from '../../../../actions/registrationActions';
+
 import './RegistrationMain.scss';
 
 const RegistrationMain = () => {
+  const dispatch = useDispatch();
   return (
     <main className="RegistrationMain">
       <div className="RegistrationMain-content">
@@ -23,6 +28,9 @@ const RegistrationMain = () => {
               name="email"
               required
               placeholder="saisir une adresse email"
+              onChange={(e) => {
+                dispatch(changeRegistrationInput(e.target.value, 'emailInput'));
+              }}
             />
           </div>
           <div className="RegistrationMain-content-form-item username">
@@ -33,6 +41,11 @@ const RegistrationMain = () => {
               name="username"
               required
               placeholder="définir un nom d utilisateur"
+              onChange={(e) => {
+                dispatch(
+                  changeRegistrationInput(e.target.value, 'usernameInput')
+                );
+              }}
             />
           </div>
           <div className="RegistrationMain-content-form-usernameRules">
@@ -53,6 +66,11 @@ const RegistrationMain = () => {
               name="password"
               required
               placeholder="définir un mot de passe"
+              onChange={(e) => {
+                dispatch(
+                  changeRegistrationInput(e.target.value, 'passwordInput')
+                );
+              }}
             />
           </div>
           <div className="RegistrationMain-content-form-item">
@@ -65,6 +83,14 @@ const RegistrationMain = () => {
               name="passwordConfirm"
               required
               placeholder="confirmer le mot de passe"
+              onChange={(e) => {
+                dispatch(
+                  changeRegistrationInput(
+                    e.target.value,
+                    'passwordConfirmInput'
+                  )
+                );
+              }}
             />
           </div>
           <div className="RegistrationMain-content-form-passwordRules">
