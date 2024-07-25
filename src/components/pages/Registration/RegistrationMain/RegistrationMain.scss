@@ -7,12 +7,21 @@
   height: calc(100vh - 4rem - 1px);
   padding-top: 5rem;
 
+  @media (max-width: 550px) {
+    padding-top: 2.5rem;
+  }
+
   &-content {
     background-color: v.$backgroundColorTransparent;
     border-radius: v.$radius;
     margin: auto;
     padding: 2rem 3rem;
     width: 33rem;
+
+    @media (max-width: 550px) {
+      padding: 1rem 1.5rem;
+      width: 20rem;
+    }
 
     &-title {
       color: v.$textColor;
@@ -78,10 +87,22 @@
 
           & .cross {
             color: red;
+
+            &.special {
+              @media (max-width: 550px) {
+                width: 1.5rem;
+              }
+            }
           }
 
           & .check {
             color: green;
+
+            &.special {
+              @media (max-width: 550px) {
+                width: 1.5rem;
+              }
+            }
           }
         }
       }

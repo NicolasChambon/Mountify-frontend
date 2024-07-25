@@ -86,7 +86,7 @@ const RegistrationMain = () => {
               ) : (
                 <RxCross2 className="cross" />
               )}
-              <p>Commence par une lettre</p> */}
+              <p>Commence par une lettre</p>
             </div>
           </div>
           <div className="RegistrationMain-content-form-item password">
@@ -159,9 +159,9 @@ const RegistrationMain = () => {
             </div>
             <div className="RegistrationMain-content-form-passwordRules-item">
               {isPasswordContainingSpecialCharacter ? (
-                <FiCheck className="check" />
+                <FiCheck className="check special" />
               ) : (
-                <RxCross2 className="cross" />
+                <RxCross2 className="cross special" />
               )}
               <p>
                 {
