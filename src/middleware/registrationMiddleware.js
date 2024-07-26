@@ -37,6 +37,10 @@ const registrationMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.error(error);
+          store.dispatch(writePopUpMessage(error.message, 'error'));
+          setTimeout(() => {
+            store.dispatch(writePopUpMessage('', ''));
+          }, 5000);
         })
         .finally(() => {});
       break;

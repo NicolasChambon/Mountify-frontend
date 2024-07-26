@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { Link, useNavigate } from 'react-router-dom';
 
 import { RxCross2 } from 'react-icons/rx';
@@ -8,6 +8,7 @@ import { FiCheck } from 'react-icons/fi';
 import {
   changeRegistrationInput,
   postRegistrationForm,
+  removeRegistrationInputs,
 } from '../../../../actions/registrationActions';
 
 import './RegistrationMain.scss';
@@ -15,6 +16,10 @@ import './RegistrationMain.scss';
 const RegistrationMain = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(removeRegistrationInputs());
+  }, [dispatch]);
 
   const emailInput =
     useSelector((state) => state.registration.emailInput) || '';

@@ -1,4 +1,7 @@
-import { CHANGE_REGISTRATION_INPUT } from '../actions/registrationActions';
+import {
+  CHANGE_REGISTRATION_INPUT,
+  REMOVE_REGISTRATION_INPUTS,
+} from '../actions/registrationActions';
 
 export const initialState = {
   emailInput: '',
@@ -13,6 +16,10 @@ const registrationReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: action.value,
+      };
+    case REMOVE_REGISTRATION_INPUTS:
+      return {
+        ...initialState,
       };
 
     default:
