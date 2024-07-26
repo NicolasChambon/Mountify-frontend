@@ -4,6 +4,7 @@ export const initialState = {
   emailInput: '',
   usernameInput: '',
   passwordInput: '',
+  confirmPasswordInput: '',
 };
 
 const registrationReducer = (state = initialState, action = {}) => {

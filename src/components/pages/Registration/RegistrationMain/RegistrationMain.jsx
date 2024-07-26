@@ -1,21 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { RxCross2 } from 'react-icons/rx';
 import { FiCheck } from 'react-icons/fi';
 
-import { changeRegistrationInput } from '../../../../actions/registrationActions';
+import {
+  changeRegistrationInput,
+  postRegistrationForm,
+} from '../../../../actions/registrationActions';
 
 import './RegistrationMain.scss';
 
 const RegistrationMain = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const emailInput =
+    useSelector((state) => state.registration.emailInput) || '';
   const usernameInput = useSelector(
-    (state) => state.registration.usernameInput
+    (state) => state.registration.usernameInput || ''
   );
   const passwordInput = useSelector(
-    (state) => state.registration.passwordInput
+    (state) => state.registration.passwordInput || ''
+  );
+  const passwordConfirmInput = useSelector(
+    (state) => state.registration.passwordConfirmInput || ''
   );
 
   // Username rules
@@ -42,13 +52,20 @@ const RegistrationMain = () => {
         <p className="RegistrationMain-content-subtitle">
           Créez votre compte en quelques secondes
         </p>
-        <form className="RegistrationMain-content-form">
+        <form
+          className="RegistrationMain-content-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch(postRegistrationForm(navigate));
+          }}
+        >
           <div className="RegistrationMain-content-form-item">
             <label htmlFor="email">Adresse email</label>
             <input
               type="email"
               id="email"
               name="email"
+              value={emailInput}
               required
               placeholder="saisir une adresse email"
               onChange={(e) => {
@@ -62,6 +79,7 @@ const RegistrationMain = () => {
               type="text"
               id="username"
               name="username"
+              value={usernameInput}
               required
               placeholder="définir un nom d utilisateur"
               onChange={(e) => {
@@ -95,6 +113,7 @@ const RegistrationMain = () => {
               type="password"
               id="password"
               name="password"
+              value={passwordInput}
               required
               placeholder="définir un mot de passe"
               onChange={(e) => {
@@ -112,6 +131,7 @@ const RegistrationMain = () => {
               type="password"
               id="passwordConfirm"
               name="passwordConfirm"
+              value={passwordConfirmInput}
               required
               placeholder="confirmer le mot de passe"
               onChange={(e) => {
