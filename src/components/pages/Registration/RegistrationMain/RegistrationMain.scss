@@ -5,7 +5,8 @@
   background-position: center;
   background-size: cover;
   height: calc(100vh - 4rem - 1px);
-  padding-top: 5rem;
+  padding-top: 3rem;
+  position: relative;
 
   @media (max-width: 550px) {
     padding-top: 2.5rem;

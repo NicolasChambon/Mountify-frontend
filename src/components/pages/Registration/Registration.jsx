@@ -1,5 +1,6 @@
 import RegistrationHeader from './RegistrationHeader/RegistrationHeader';
 import RegistrationMain from './RegistrationMain/RegistrationMain';
+import RegistrationErrors from './RegistrationErrors/RegistrationErrors';
 
 import './Registration.scss';
 
@@ -8,6 +9,7 @@ const Registration = () => {
     <>
       <RegistrationHeader />
       <RegistrationMain />
+      <RegistrationErrors />
     </>
   );
 };

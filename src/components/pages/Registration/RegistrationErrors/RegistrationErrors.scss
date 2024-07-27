@@ -1,0 +1,19 @@
+@use '../../../../styles/variables.scss' as v;
+
+.RegistrationErrors {
+  background-color: v.$backgroundErrorColorTransparent;
+  border-radius: v.$radius;
+  color: v.$textErrorColor;
+  font-weight: 500;
+  left: calc(50% - 16.5rem);
+  position: absolute;
+  padding: 1rem 3rem;
+  top: 51rem;
+  width: 33rem;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

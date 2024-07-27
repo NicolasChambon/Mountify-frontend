@@ -1,7 +1,7 @@
 import { WRITE_POPUP_MESSAGE } from '../actions/globalActions';
 
 export const initialState = {
-  popUpMessage: { message: '', status: '' },
+  popUpMessage: { messages: [], status: '' },
 };
 
 const globalReducer = (state = initialState, action = {}) => {
