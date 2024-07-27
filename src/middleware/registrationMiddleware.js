@@ -17,6 +17,8 @@ const registrationMiddleware = (store) => (next) => (action) => {
                 email: store.getState().registration.emailInput,
                 username: store.getState().registration.usernameInput,
                 password: store.getState().registration.passwordInput,
+                passwordConfirm:
+                  store.getState().registration.passwordConfirmInput,
               }),
             }
           );
@@ -40,7 +42,7 @@ const registrationMiddleware = (store) => (next) => (action) => {
           store.dispatch(writePopUpMessage(errorsTable));
           setTimeout(() => {
             store.dispatch(writePopUpMessage([]));
-          }, 5000);
+          }, 10000);
         }
       };
       registerUser();
