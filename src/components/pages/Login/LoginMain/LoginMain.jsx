@@ -2,14 +2,11 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { RxCross2 } from 'react-icons/rx';
-import { FiCheck } from 'react-icons/fi';
-
 import {
-  changeRegistrationInput,
-  postRegistrationForm,
-  removeRegistrationInputs,
-} from '../../../../actions/registrationActions';
+  changeLoginInput,
+  postLoginForm,
+  removeLoginInputs,
+} from '../../../../actions/loginActions';
 
 import './LoginMain.scss';
 
@@ -18,48 +15,22 @@ const LoginMain = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(removeRegistrationInputs());
+    dispatch(removeLoginInputs());
   }, [dispatch]);
 
-  const emailInput =
-    useSelector((state) => state.registration.emailInput) || '';
-  const usernameInput = useSelector(
-    (state) => state.registration.usernameInput || ''
-  );
-  const passwordInput = useSelector(
-    (state) => state.registration.passwordInput || ''
-  );
-  const passwordConfirmInput = useSelector(
-    (state) => state.registration.passwordConfirmInput || ''
-  );
-
-  // Username rules
-  // .test(string) method is used to test if a string matches a regular expression
-  const isUsernameLongEnough = usernameInput.length >= 3;
-  const isUsernameStartingWithLetter = /^[a-zA-Z]/.test(usernameInput);
-
-  // Password rules
-  const isPasswordLongEnough = passwordInput.length >= 8;
-  const isPasswordContainingUppercase = /[A-Z]/.test(passwordInput);
-  const isPasswordContainingLowercase = /[a-z]/.test(passwordInput);
-  const isPasswordContainingNumber = /\d/.test(passwordInput);
-  const isPasswordContainingSpecialCharacter = /[^A-Za-z0-9]/.test(
-    passwordInput
-  );
-  const isPasswordNotContainingSpace = !/\s/.test(passwordInput);
+  const emailInput = useSelector((state) => state.login.emailInput) || '';
+  const passwordInput = useSelector((state) => state.login.passwordInput || '');
 
   return (
     <main className="LoginMain">
       <div className="LoginMain-content">
-        <h2 className="LoginMain-content-title">Inscrivez-vous gratuitement</h2>
-        <p className="LoginMain-content-subtitle">
-          Créez votre compte en quelques secondes
-        </p>
+        <h2 className="LoginMain-content-title">Connectez-vous</h2>
+
         <form
           className="LoginMain-content-form"
           onSubmit={(e) => {
             e.preventDefault();
-            dispatch(postRegistrationForm(navigate));
+            dispatch(postLoginForm(navigate));
           }}
         >
           <div className="LoginMain-content-form-item">
@@ -70,46 +41,13 @@ const LoginMain = () => {
               name="email"
               value={emailInput}
               required
-              placeholder="saisir une adresse email"
+              placeholder="saisir votre adresse email"
               onChange={(e) => {
-                dispatch(changeRegistrationInput(e.target.value, 'emailInput'));
+                dispatch(changeLoginInput(e.target.value, 'emailInput'));
               }}
             />
           </div>
-          <div className="LoginMain-content-form-item username">
-            <label htmlFor="username">Nom d&apos;utilisateur</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={usernameInput}
-              required
-              placeholder="définir un nom d utilisateur"
-              onChange={(e) => {
-                dispatch(
-                  changeRegistrationInput(e.target.value, 'usernameInput')
-                );
-              }}
-            />
-          </div>
-          <div className="LoginMain-content-form-usernameRules">
-            <div className="LoginMain-content-form-usernameRules-item">
-              {isUsernameLongEnough ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>3 caractères minimum</p>
-            </div>
-            <div className="LoginMain-content-form-usernameRules-item">
-              {isUsernameStartingWithLetter ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>Commence par une lettre</p>
-            </div>
-          </div>
+
           <div className="LoginMain-content-form-item password">
             <label htmlFor="password">Mot de passe</label>
             <input
@@ -118,95 +56,20 @@ const LoginMain = () => {
               name="password"
               value={passwordInput}
               required
-              placeholder="définir un mot de passe"
+              placeholder="saisir votre mot de passe"
               onChange={(e) => {
-                dispatch(
-                  changeRegistrationInput(e.target.value, 'passwordInput')
-                );
+                dispatch(changeLoginInput(e.target.value, 'passwordInput'));
               }}
             />
           </div>
-          <div className="LoginMain-content-form-item">
-            <label htmlFor="passwordConfirm">
-              Confirmez votre mot de passe
-            </label>
-            <input
-              type="password"
-              id="passwordConfirm"
-              name="passwordConfirm"
-              value={passwordConfirmInput}
-              required
-              placeholder="confirmer le mot de passe"
-              onChange={(e) => {
-                dispatch(
-                  changeRegistrationInput(
-                    e.target.value,
-                    'passwordConfirmInput'
-                  )
-                );
-              }}
-            />
-          </div>
-          <div className="LoginMain-content-form-passwordRules">
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordLongEnough ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>8 caractères minimum</p>
-            </div>
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordContainingUppercase ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>Au moins une lettre majuscule</p>
-            </div>
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordContainingLowercase ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>Au moins une lettre minuscule</p>
-            </div>
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordContainingNumber ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>Au moins un chiffre</p>
-            </div>
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordContainingSpecialCharacter ? (
-                <FiCheck className="check special" />
-              ) : (
-                <RxCross2 className="cross special" />
-              )}
-              <p>
-                {
-                  'Au moins un caractère spécial (parmi !@#$%^&*()_-+={}[]:;"\'|\\,.<>?/`)'
-                }
-              </p>
-            </div>
-            <div className="LoginMain-content-form-passwordRules-item">
-              {isPasswordNotContainingSpace ? (
-                <FiCheck className="check" />
-              ) : (
-                <RxCross2 className="cross" />
-              )}
-              <p>Ne contient pas d&apos;espace</p>
-            </div>
-          </div>
+
           <button className="LoginMain-content-form-submit" type="submit">
-            S&apos;inscrire
+            Se connecter
           </button>
         </form>
         <p className="LoginMain-content-login">
-          Vous avez déjà un compte ? <Link to="/login">Connectez-vous</Link>
+          Vous n&apos;avez pas de compte ?{' '}
+          <Link to="/registration">Inscrivez-vous</Link>
         </p>
       </div>
     </main>

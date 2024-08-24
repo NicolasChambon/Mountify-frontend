@@ -1,7 +1,7 @@
 @use '../../../../styles/variables.scss' as v;
 
 .LoginMain {
-  background-image: url(../../../../assets/Registration_background.jpg);
+  background-image: url(../../../../assets/Login_background.jpg);
   background-position: center;
   background-size: cover;
   height: calc(100vh - 4rem - 1px);
@@ -41,14 +41,6 @@
       }
     }
 
-    &-subtitle {
-      color: v.$textColor;
-      font-size: v.$subtitlesSize;
-      font-weight: v.$subtitlesWeight;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
     &-form {
       &-item {
         display: flex;
@@ -73,45 +65,6 @@
 
           &::placeholder {
             color: v.$textColorLight;
-          }
-        }
-
-        &.password,
-        &.username {
-          border-top: v.$textColorLight 1px solid;
-          padding-top: 1rem;
-        }
-      }
-
-      &-passwordRules,
-      &-usernameRules {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        padding-bottom: 1rem;
-
-        &-item {
-          display: flex;
-          gap: 0.5rem;
-
-          & .cross {
-            color: red;
-
-            &.special {
-              @media (max-width: 550px) {
-                width: 1.5rem;
-              }
-            }
-          }
-
-          & .check {
-            color: green;
-
-            &.special {
-              @media (max-width: 550px) {
-                width: 1.5rem;
-              }
-            }
           }
         }
       }
