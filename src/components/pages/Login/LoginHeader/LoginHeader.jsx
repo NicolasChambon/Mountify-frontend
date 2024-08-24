@@ -15,8 +15,8 @@ const LoginHeader = () => {
             alt="Logo de Mountify"
           />
         </Link>
-        <Link className="LoginHeader-wrapper-login" to="/login">
-          Se connecter
+        <Link className="LoginHeader-wrapper-register" to="/registration">
+          S&apos;inscrire
         </Link>
       </div>
     </header>

@@ -29,16 +29,16 @@
       }
     }
 
-    &-login {
+    &-register {
       font-weight: 500;
 
-      background-color: v.$accentColor;
-      border: 1px solid v.$accentColorDark;
+      background-color: v.$secondaryColor;
+      border: 1px solid v.$secondaryColorDark;
       border-radius: v.$radius;
       padding: 0.5rem 1rem;
 
       &:hover {
-        background-color: v.$accentColorDark;
+        background-color: v.$secondaryColorDark;
       }
       transition: background-color 0.3s;
     }
