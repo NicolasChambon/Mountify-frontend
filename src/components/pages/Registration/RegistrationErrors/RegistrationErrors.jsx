@@ -5,6 +5,7 @@ import './RegistrationErrors.scss';
 const RegistrationErrors = () => {
   const messages =
     useSelector((state) => state.global.popUpMessage.message) || [];
+
   return (
     messages.length > 0 && (
       <div className="RegistrationErrors">

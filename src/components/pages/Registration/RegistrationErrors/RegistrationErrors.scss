@@ -5,15 +5,33 @@
   border-radius: v.$radius;
   color: v.$textErrorColor;
   font-weight: 500;
-  left: calc(50% - 16.5rem);
+  left: calc(50% - 20rem);
   position: absolute;
   padding: 1rem 3rem;
   top: 51rem;
-  width: 33rem;
+  width: 40rem;
+
+  @media (max-width: 660px) {
+    left: calc(50% - 15rem);
+    padding: 1rem 1.5rem;
+    top: 47rem;
+    width: 30rem;
+  }
+
+  @media (max-width: 495px) {
+    left: calc(50% - 10rem);
+    padding: 0.5rem 1rem;
+    top: 49rem;
+    width: 20rem;
+  }
 
   &-list {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    @media (max-width: 495px) {
+      gap: 0.25rem;
+    }
   }
 }

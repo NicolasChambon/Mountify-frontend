@@ -14,7 +14,11 @@ const Footer = () => {
             to="/"
             onClick={() => {
               if (window.location.pathname === '/') {
-                window.scrollTo(0, 0);
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth',
+                });
               }
             }}
           >
@@ -74,7 +78,7 @@ const Footer = () => {
         <span className="Footer-bottom-bar"> | </span>
         <span className="Footer-bottom-credits">
           Créé par{' '}
-          <a href="https://nicolaschambon.github.io/" target="blank">
+          <a href="https://nicolaschambondev.vercel.app/" target="blank">
             Nicolas Chambon
           </a>
         </span>

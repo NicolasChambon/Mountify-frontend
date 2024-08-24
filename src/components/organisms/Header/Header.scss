@@ -51,7 +51,7 @@
         &:hover {
           background-color: v.$primaryColorDark;
         }
-        transition: background-color 0.1s;
+        transition: background-color 0.3s;
 
         &-icon {
           vertical-align: text-top;
@@ -94,7 +94,7 @@
         &:hover {
           color: v.$textColor;
         }
-        transition: color 0.1s;
+        transition: color 0.3s;
       }
     }
 
@@ -112,7 +112,7 @@
       &:hover {
         background-color: v.$primaryColorDark;
       }
-      transition: background-color 0.1s;
+      transition: background-color 0.3s;
 
       &-icon {
         vertical-align: top;
@@ -136,7 +136,7 @@
         &:hover {
           background-color: v.$accentColorDark;
         }
-        transition: background-color 0.1s;
+        transition: background-color 0.3s;
       }
 
       &-signup {
@@ -149,7 +149,7 @@
         &:hover {
           background-color: v.$secondaryColorDark;
         }
-        transition: background-color 0.1s;
+        transition: background-color 0.3s;
       }
     }
 
@@ -173,7 +173,7 @@
         &:hover {
           color: v.$textColor;
         }
-        transition: color 0.1s;
+        transition: color 0.3s;
       }
 
       &-user {
@@ -187,7 +187,7 @@
         &:hover {
           color: v.$textColor;
         }
-        transition: color 0.1s;
+        transition: color 0.3s;
 
         &-avatarContainer {
           border-radius: 50%;
