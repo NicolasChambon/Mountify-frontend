@@ -1,0 +1,162 @@
+@use '../../../../styles/variables.scss' as v;
+
+.LoginMain {
+  background-image: url(../../../../assets/Registration_background.jpg);
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 4rem - 1px);
+  padding-top: 3rem;
+  position: relative;
+
+  @media (max-width: 660px) {
+    padding-top: 0.5rem;
+  }
+
+  &-content {
+    background-color: v.$backgroundColorTransparent;
+    border-radius: v.$radius;
+    margin: auto;
+    padding: 2rem 3rem;
+    width: 40rem;
+
+    @media (max-width: 660px) {
+      padding: 1rem 1.5rem;
+      width: 30rem;
+    }
+
+    @media (max-width: 495px) {
+      width: 20rem;
+    }
+
+    &-title {
+      color: v.$textColor;
+      font-family: v.$titleFont;
+      font-size: v.$h2Size;
+      font-weight: v.$h2Weight;
+      margin-bottom: 1rem;
+      text-align: center;
+
+      @media (max-width: 495px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    &-subtitle {
+      color: v.$textColor;
+      font-size: v.$subtitlesSize;
+      font-weight: v.$subtitlesWeight;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    &-form {
+      &-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        & label {
+          font-weight: 500;
+        }
+
+        & input {
+          background-color: v.$backgroundColor;
+          border: v.$secondaryColor 1px solid;
+          border-radius: v.$radius;
+          color: v.$textColor;
+          padding: 0.5rem;
+
+          &:focus {
+            border-color: v.$secondaryColorDark;
+          }
+
+          &::placeholder {
+            color: v.$textColorLight;
+          }
+        }
+
+        &.password,
+        &.username {
+          border-top: v.$textColorLight 1px solid;
+          padding-top: 1rem;
+        }
+      }
+
+      &-passwordRules,
+      &-usernameRules {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-bottom: 1rem;
+
+        &-item {
+          display: flex;
+          gap: 0.5rem;
+
+          & .cross {
+            color: red;
+
+            &.special {
+              @media (max-width: 550px) {
+                width: 1.5rem;
+              }
+            }
+          }
+
+          & .check {
+            color: green;
+
+            &.special {
+              @media (max-width: 550px) {
+                width: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      &-submit {
+        background-color: v.$primaryColor;
+        border: v.$primaryColorDark 1px solid;
+        border-radius: v.$radius;
+        font-family: v.$mainFont;
+        font-size: v.$textSize;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+
+        &:hover {
+          background-color: v.$primaryColorDark;
+        }
+        transition: background-color 0.3s;
+      }
+    }
+
+    &-login {
+      text-align: center;
+
+      & a {
+        color: v.$primaryColorDark;
+        font-weight: 500;
+
+        // when hover a underline start to be drawn with animation from de bottom left to the bottom right of the link
+        position: relative;
+        &::before {
+          background-color: v.$primaryColorDark;
+          bottom: -0.15rem;
+          content: '';
+          height: 0.1rem;
+          left: 0;
+          position: absolute;
+          transition: width 0.2s;
+          width: 0;
+        }
+        &:hover::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

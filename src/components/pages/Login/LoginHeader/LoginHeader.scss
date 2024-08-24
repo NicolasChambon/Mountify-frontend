@@ -1,0 +1,46 @@
+@use '../../../../styles/variables.scss' as v;
+
+.LoginHeader {
+  background-color: v.$backgroundColor;
+  border-bottom: 1px solid v.$backgroundColorDark;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+
+  &-wrapper {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1350px;
+    padding: 0.5rem 2rem;
+    position: relative;
+
+    @media (max-width: 940px) {
+      padding: 0.5rem 0.5rem;
+    }
+
+    &-logoContainer {
+      height: 100%;
+
+      &-logo {
+        height: 100%;
+      }
+    }
+
+    &-login {
+      font-weight: 500;
+
+      background-color: v.$accentColor;
+      border: 1px solid v.$accentColorDark;
+      border-radius: v.$radius;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        background-color: v.$accentColorDark;
+      }
+      transition: background-color 0.3s;
+    }
+  }
+}
